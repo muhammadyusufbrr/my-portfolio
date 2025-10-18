@@ -4,11 +4,14 @@ body {
   font-family: var(--font-fira-code), monospace;
 }
 .container {
-  width: -100%;
+  width: 100%;
   max-width: 1782px;
-  padding: 15px;
+  padding: 37px 15px;
   margin-left: auto;
   margin-right: auto;
+}
+.main-wrap {
+  height: calc(100vh - 74px);
 }
 .text-item {
   font-weight: 450;
@@ -64,7 +67,7 @@ body {
   width: 24px;
   height: 24px;
 }
-.github-item{
+.github-item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -86,6 +89,20 @@ body {
     width: 100%;
   }
 }
-button{
+button {
   cursor: pointer;
+}
+.scroll-style::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  padding: 0 8px ;
+}
+
+.scroll-style::-webkit-scrollbar-track {
+  border-left: 1px solid #1e2d3d;
+}
+
+.scroll-style::-webkit-scrollbar-thumb {
+  background: #1e2d3d;
+  border-radius: 8px;
 }
