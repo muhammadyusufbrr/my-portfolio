@@ -83,6 +83,7 @@ const ContactSideBar = () => {
               <li className="w-full">
                 <a
                   href="https://www.youtube.com/@MuhammadyusufGulomov-Code"
+                  target="_blank"
                   className="w-full px-1 pl-3 flex items-center gap-2 cursor-pointer group"
                 >
                   <IoOpenOutline className="text-[#62748E] text-2xl group-hover:text-white transition-colors duration-200" />
@@ -94,6 +95,7 @@ const ContactSideBar = () => {
               <li className="w-full">
                 <a
                   href="https://dev.to/muhammadyusuf_dev"
+                  target="_blank"
                   className="w-full px-1 pl-3 flex items-center gap-2 cursor-pointer group"
                 >
                   <IoOpenOutline className="text-[#62748E] text-2xl group-hover:text-white transition-colors duration-200" />
@@ -105,6 +107,7 @@ const ContactSideBar = () => {
               <li className="w-full">
                 <a
                   href="https://www.instagram.com/muhammadyusuf_code/"
+                  target="_blank"
                   className="w-full px-1 pl-3 flex items-center gap-2 cursor-pointer group"
                 >
                   <IoOpenOutline className="text-[#62748E] text-2xl group-hover:text-white transition-colors duration-200" />
