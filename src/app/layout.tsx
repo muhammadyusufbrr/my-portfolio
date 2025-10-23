@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import MainLayout from "@/components/layout/mainLayout";
 import localFont from "next/font/local";
+import StoreProvider from "./StoreProvider";
 
 const firaCode = localFont({
   src: [
@@ -48,7 +49,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${firaCode.variable} antialiased`}>
-        <MainLayout>{children}</MainLayout>
+        <StoreProvider>
+          <MainLayout>{children}</MainLayout>
+        </StoreProvider>
       </body>
     </html>
   );

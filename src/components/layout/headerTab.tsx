@@ -11,7 +11,7 @@ const HeaderTab = ({ title = "" }: HeaderTabProp) => {
       {title ? (
         <div className="h-full px-6 border-r border-[#1E2D3D] text-[#90A1B9] max-w-[242px] flex items-center justify-between text-base">
           <span className="cursor-default select-none">{title}</span>
-          <button>
+          <button name="close btn">
             <IoMdClose />
           </button>
         </div>

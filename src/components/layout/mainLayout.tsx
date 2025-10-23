@@ -20,13 +20,21 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         <Header />
 
         {isHome ? (
-          children
+          <div
+            className="overflow-auto scroll-style"
+            style={{ height: "calc(100vh - 192px)" }}
+          >
+            {children}
+          </div>
         ) : (
           <div className="grid grid-cols-[311px_1fr] flex-grow h-full">
             <SideBar pathname={pathname} />
             <div>
               <HeaderTab title={pathname.split("/")[1] || ""} />
-              <div className="overflow-auto scroll-style" style={{height:"calc(100vh - 240px)"}}>
+              <div
+                className="overflow-auto scroll-style"
+                style={{ height: "calc(100vh - 240px)" }}
+              >
                 {children}
               </div>
             </div>
