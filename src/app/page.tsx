@@ -1,3 +1,4 @@
+
 const page = () => {
   return (
     <section className="py-11">
@@ -31,7 +32,6 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div></div>
     </section>
   );
 };

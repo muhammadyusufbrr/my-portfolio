@@ -6,6 +6,7 @@ type DropdownSlice = {
   isProjectDropdownOpen: boolean;
   isAboutContactsDropdownOpen: boolean;
   isPersonalInfoDropdownOpen: boolean;
+  isEducationDropdownOpen:boolean
 };
 
 const loadState = (): DropdownSlice => {
@@ -19,6 +20,7 @@ const loadState = (): DropdownSlice => {
     isProjectDropdownOpen: true,
     isAboutContactsDropdownOpen: true,
     isPersonalInfoDropdownOpen: true,
+    isEducationDropdownOpen:true
   };
 };
 

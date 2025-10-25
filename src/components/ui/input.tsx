@@ -1,41 +1,38 @@
 import React from "react";
+import { MdErrorOutline } from "react-icons/md";
 
-type InputProps = {
-  type?: React.HTMLInputTypeAttribute; 
-  name?: string;
-  id?: string;
-  placeholder?: string;
-  value?: string | number;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
-  required?: boolean;
-  disabled?: boolean;
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  errorMessage?: string;
 };
 
-const Input: React.FC<InputProps> = ({
-  type = "text",
-  name = "",
-  id = "",
-  placeholder = "",
-  value,
-  onChange,
-  className = "",
-  required = false,
-  disabled = false,
-}) => {
-  return (
-    <input
-      type={type}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      required={required}
-      disabled={disabled}
-      className={`w-full border-1 border-[#314158] p-3 rounded-lg bg-[#020618] text-base text-[#90A1B9] focus:border-[#CAD5E2] focus:outline-none transition-colors duration-200 disabled:bg-[#1E2D3D] disabled:cursor-not-allowed ${className}`}
-    />
-  );
-};
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ errorMessage, className = "", ...props }, ref) => {
+    return (
+      <div className="flex flex-col gap-[4px]">
+        <div className="w-full relative flex items-center">
+          <input
+            ref={ref}
+            {...props}
+            className={`w-full border flex-1 ${
+              errorMessage
+                ? "border-[#FB2C36] bg-[#460809]"
+                : "border-[#314158] bg-[#020618] focus:border-[#CAD5E2]"
+            }  p-3 rounded-lg  text-base text-[#90A1B9]  focus:outline-none transition-colors duration-200 
+            disabled:bg-[#1E2D3D] disabled:cursor-not-allowed ${className}`}
+          />
+          {errorMessage && (
+            <div className="absolute right-2.5 text text-2xl text-[#FB2C36]">
+              <MdErrorOutline />
+            </div>
+          )}
+        </div>
+        {errorMessage && (
+          <p className="text-[#FB2C36] text-sm">{errorMessage}</p>
+        )}
+      </div>
+    );
+  }
+);
 
+Input.displayName = "Input";
 export default Input;

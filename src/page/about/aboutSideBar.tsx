@@ -25,6 +25,9 @@ const AboutSideBar = () => {
   const isContactOpen = useSelector(
     (state: RootState) => state.dropdown.isAboutContactsDropdownOpen
   );
+  const isEducationOpen = useSelector(
+    (state: RootState) => state.dropdown.isEducationDropdownOpen
+  );
   return (
     <div className="flex h-full">
       <div className="pt-[17.6px] border-r border-[#1E2D3D] inline-block h-full">
@@ -120,37 +123,57 @@ const AboutSideBar = () => {
                   <ul></ul>
                 </li>
                 <li className="w-full mb-3">
-                  <button className="text-base text-[#607B96] flex items-center px-6 w-full">
-                    <div className="mr-3">
-                      <MdKeyboardArrowDown />
-                    </div>
+                  <button
+                    onClick={() =>
+                      dispatch(toggleDropdown("isEducationDropdownOpen"))
+                    }
+                    className={`text-base flex items-center px-6 w-full hover:text-white transition-colors duration-200 ${
+                      isEducationOpen ? "text-white" : " text-[#607B96]"
+                    }`}
+                  >
+                    <MdKeyboardArrowDown
+                      className={`mr-3 transition-transform duration-300 ${
+                        isEducationOpen ? "rotate-0" : "rotate-180"
+                      }`}
+                    />
                     <div className="text-[#615FFF] mr-2 ">
                       <RiFolder3Fill />
                     </div>
                     education
                   </button>
-                  <ul>
-                    <li className="w-full mt-2">
-                      <div className="w-full pl-13  flex items-center gap-2  cursor-pointer group">
-                        <div>
-                          <RiMarkdownFill className="text-[#62748E] text-base group-hover:text-white transition-colors duration-200" />
-                        </div>
-                        <span className="text-[#90A1B9] text-base group-hover:text-white transition-colors duration-200">
-                          high-school
-                        </span>
-                      </div>
-                    </li>
-                    <li className="w-full mt-3">
-                      <div className="w-full pl-13  flex items-center gap-2  cursor-pointer group">
-                        <div>
-                          <RiMarkdownFill className="text-[#62748E] text-base group-hover:text-white transition-colors duration-200" />
-                        </div>
-                        <span className="text-[#90A1B9] text-base group-hover:text-white transition-colors duration-200">
-                          university
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
+                  <AnimatePresence>
+                    {isEducationOpen && (
+                      <motion.ul
+                        key="dropdown"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        className="  overflow-hidden"
+                      >
+                        <li className="w-full mt-2">
+                          <div className="w-full pl-13  flex items-center gap-2  cursor-pointer group">
+                            <div>
+                              <RiMarkdownFill className="text-[#62748E] text-base group-hover:text-white transition-colors duration-200" />
+                            </div>
+                            <span className="text-[#90A1B9] text-base group-hover:text-white transition-colors duration-200">
+                              high-school
+                            </span>
+                          </div>
+                        </li>
+                        <li className="w-full mt-3">
+                          <div className="w-full pl-13  flex items-center gap-2  cursor-pointer group">
+                            <div>
+                              <RiMarkdownFill className="text-[#62748E] text-base group-hover:text-white transition-colors duration-200" />
+                            </div>
+                            <span className="text-[#90A1B9] text-base group-hover:text-white transition-colors duration-200">
+                              university
+                            </span>
+                          </div>
+                        </li>
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
                 </li>
               </motion.ul>
             )}

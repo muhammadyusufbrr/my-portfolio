@@ -34,39 +34,3 @@
 // };
 
 // export default ContactCode;
-
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-
-const code = `const button = document.querySelector('#sendBtn');
-
-const message = {
-	name: "Jonathan Davis",
-	email: "jonathan-davis@gmail.com",
-	message: "${"Salom"}",
-	date: "Thu 21 Apr"
-}
-
-button.addEventListener('click', () => {
-	form.send(message);
-});
-`;
-
-export const CodeSnippet = () => (
-  <SyntaxHighlighter
-    language="javascript"
-    style={oneDark}
-    showLineNumbers
-    // customStyle={{
-    //   background: "transparent",
-    //   padding: "16px",
-    //   fontSize: "18px",
-    //   lineHeight: "1.6",
-    // }}
-    codeTagProps={{
-      style: { background: "transparent",fontSize:"18px" },
-    }}
-  >
-    {code}
-  </SyntaxHighlighter>
-);
